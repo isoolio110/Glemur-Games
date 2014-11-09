@@ -54,6 +54,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt
   httparty
+  json
   pg
   pry
   rake

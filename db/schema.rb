@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141105221341) do
+ActiveRecord::Schema.define(version: 20141108202456) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20141105221341) do
     t.integer  "num_bad_guesses"
     t.boolean  "last_guess"
     t.boolean  "in_word"
+    t.integer  "win"
+    t.integer  "loss"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -35,9 +37,7 @@ ActiveRecord::Schema.define(version: 20141105221341) do
   end
 
   create_table "words", force: true do |t|
-    t.string   "word_text",  null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "word_text"
   end
 
 end

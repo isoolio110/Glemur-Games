@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  has_many :hangman_games
+  has_many :words, through: :hangman_games
+
   include BCrypt
 
   def password

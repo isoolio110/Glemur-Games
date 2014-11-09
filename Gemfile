@@ -7,5 +7,5 @@ gem 'bcrypt'
 gem 'rake'
 gem 'pg'
 gem 'pry'
-
+gem 'json'
 

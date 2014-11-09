@@ -1,4 +1,4 @@
-module AuthenticationHelper
+ module AuthenticationHelper
   def current_user
     if session[:current_user]
       @current_user ||= User.find(session[:current_user])
@@ -11,4 +11,5 @@ module AuthenticationHelper
     redirect '/' unless current_user
   end
 end
+
 

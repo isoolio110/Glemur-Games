@@ -1,0 +1,43 @@
+/*******************************
+		GAME MENU PAGE
+*******************************/
+
+.game_menu_div {
+	width: 50%;	
+}
+
+#circle_left {
+	border-radius: 50%;
+	width: 200px;
+	height: 200px; 
+	background-color: yellow;
+	float:left;
+	text-align: center;
+}
+
+#circle_right {
+	border-radius: 50%;
+	width: 200px;
+	height: 200px;
+	background-color: lightblue; 
+	float:right;
+	text-align: center;	
+}
+
+
+#letters_button_div {
+	height: 5%;
+}
+
+
+.guess_div {
+	width: 100%;
+}
+
+.guess_letter_div {
+	width: 50px;
+	height: 50px;
+	display: inline-block;
+	background-color: blue;
+	padding: 5px;
+}

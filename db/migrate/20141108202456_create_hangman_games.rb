@@ -1,4 +1,4 @@
-class CreateHangmangame < ActiveRecord::Migration
+class CreateHangmanGames < ActiveRecord::Migration
   def change
     create_table :hangman_games do |t|
       t.integer :user_id
@@ -7,11 +7,9 @@ class CreateHangmangame < ActiveRecord::Migration
       t.integer :num_bad_guesses
       t.boolean :last_guess
       t.boolean :in_word
+      t.integer :win
+      t.integer :loss
       t.timestamps
     end
   end
 end
-
-
-
-
