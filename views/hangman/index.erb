@@ -1,5 +1,5 @@
 <!-- ********************************************************************** -->
-<!-- Hangman Page -->
+<!-- Hangman: Index -->
 <!-- ********************************************************************** -->
 
 <!-- ******************************************** -->
@@ -52,7 +52,7 @@
 		</div>
 		<!-- hint div	 -->
 		<div id="hint_div">
-			<h3>Hint: <%= @hint %></h3>
+			<h3>Hint: <%= @hangmangame.word.hint %></h3>
 		</div>	
 		<!-- guess boxes div -->
 		<div id="guess_div">
@@ -82,7 +82,7 @@
 	<% @letters_arr.each do |letter| %>
 		<form action="/hangmangames/callletter" method="get">
 			<input type="hidden" name="letter" value=<%=letter%>>
-			<input type="hidden" name="hangmangame_id" value=<%=@hangmangame_id%>>		
+			<input type="hidden" name="hangmangame_id" value=<%=@hangmangame.id%>>		
 			<input type="submit" value=<%=letter%> class="action-button red">
 		</form>
 	<% end %>

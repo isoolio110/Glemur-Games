@@ -40,6 +40,7 @@
 #new_user_form_div {
 	margin-left: 50px;
 	color:#B0F932;
+    font-family: 'Luckiest Guy', cursive;
 }
 
 
@@ -56,6 +57,7 @@
 #new_session_form_div {
 	margin-left: 50px;
 	color:#B0F932;
+    font-family: 'Luckiest Guy', cursive;	
 }
 
 
@@ -170,7 +172,7 @@
 }
 
 #hangman_img_div {
-	width:35%;
+	width:30%;
 	margin-top: 50px;
 	margin-bottom: 50px;
 	padding-left: 10%;
@@ -179,7 +181,7 @@
 }
 
 #hangman_guess_area_div{
-	width:55%;
+	width:60%;
 	margin-top: 50px;
 	margin-bottom:50px;
 	float:right;

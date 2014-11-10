@@ -4,7 +4,7 @@ class CreateHangmanGames < ActiveRecord::Migration
       t.integer :user_id
       t.integer :word_id
       t.string :game_state
-      t.integer :num_bad_guesses
+      t.integer :num_bad_guesses, default: 0
       t.boolean :last_guess
       t.boolean :in_word
       t.integer :win
