@@ -1,7 +1,12 @@
-<h3>Log-In</h3>
+<div id="new_session_div">
+	<div id="new_session_form_div">
+		<h3>Log-In</h3>
+		<form action="/sessions" method="post">
+		  <input type="text" name="username" placeholder='...username'>
+		  <input type="password" name="password" placeholder='...password'>
+		  <input type="submit" value="Log-In">
+		</form>
+	</div>
+</div>
 
-<form action="/sessions" method="post">
-  <input type="text" name="username" placeholder='...username'>
-  <input type="password" name="password" placeholder='...password'>
-  <input type="submit" value="Log-In">
-</form>
+

@@ -24,19 +24,22 @@ namespace :db do
    task :load_word_data do
     require 'csv'
     conn = PG::Connection.open({dbname: 'glemur_games_db'})
-    CSV.foreach('words.csv', :headers => false) do |row|
-      word_text = row[0]
+    CSV.foreach('words.csv', :headers => true) do |row|
+      word_text = row["word"]
+      hint = row["hint"]
       sql_statement = <<-eos
         INSERT INTO words
-          (word_text)
+          (word_text, hint)
         VAlUES
-        ($1)
+        ($1, $2)
       eos
-    conn.exec_params(sql_statement, [word_text])
+    conn.exec_params(sql_statement, [word_text, hint])
      end
      conn.close
    end
 end
+
+
 
 
 

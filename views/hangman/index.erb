@@ -1,192 +1,104 @@
-<!-- ***************************************************** -->
+<!-- ********************************************************************** -->
 <!-- Hangman Page -->
-<!-- ***************************************************** -->
+<!-- ********************************************************************** -->
 
-<!-- ****************************** -->
+<!-- ******************************************** -->
 <!-- Navigation -->
-<!-- ****************************** -->
+<!-- ******************************************** -->
 
-<div class="navigation">
-	<div>
+<div id="navigation">
+	<div id="logout_div">
 	  <form action="/sessions" method="post">
 	    <input type="hidden" name="_method" value="delete">
-	    <input type="submit" value="Log-Out">
+	    <input type="submit" value="Log-Out" class="navigation-button">
 	  </form>
 	</div>
-	<div>
-	  <form action="/games" method="get">
-	    <input type="submit" value="Home">
+	<div id="main_nav_div">
+	  <form action="/games" method="get" class="navigation-form">
+	    <input type="submit" value="Home" class="navigation-button">
 	  </form>
-	  <form action="/profile" method="get">
-	    <input type="submit" value="Profile">
+	  <form action="/profile" method="get" class="navigation-form">
+	    <input type="submit" value="Profile" class="navigation-button">
 	  </form>
-	  <form action="/scoreboard" method="get">
-	    <input type="submit" value="Scoreboard">
+	  <form action="/scoreboard" method="get" class="navigation-form">
+	    <input type="submit" value="Scoreboard" class="navigation-button">
 	  </form>
 	</div>
 </div>
 
-<!-- ****************************** -->
-<!-- Scoreboard -->
-<!-- ****************************** -->
 
-<div id="score_div">
- 	<table>
-		<tr>
-			<td>Wins</td>
-			<td>Losses</td>
-		</tr>
-		<tr>
-			<td id="wins"><%= @wins %></td>
-			<td id="losses"><%= @losses %></td>
-		</tr>
-	</table>
-</div>
+<!-- ******************************************** -->
+<!-- Hangman Image, Scoreboard, Guess Boxes -->
+<!-- ******************************************** -->
 
-<!-- ****************************** -->
-<!-- Boxes For Guessing Letters -->
-<!-- ****************************** -->
-
-<h1>Hangman Page<h1>
-
-<h3>Word randomly selected: <%= @word_text %></h3>
-
-<div id="guess_div">
-<% @game_word_letters.each.with_index do |letter, index| %>
-	<div class="guess_letter_div">
-		<p id="guess_letter_<%= index %>">?</p>
+<div id="hangman_main_div">
+	<!-- hangman image (left side of screen) -->
+	<div id="hangman_img_div">
+		<img src="imgs/Hangman1.png" alt="Hangman Image" id="hangman_img"> 
+	</div>
+	<div id="hangman_guess_area_div">
+		<!-- scoreboard div -->
+		<div id="score_div">
+		 	<table id="score_table">
+				<tr>
+					<td>Wins</td>
+					<td>Losses</td>
+				</tr>
+				<tr>
+					<td id="wins"><%= @wins %></td>
+					<td id="losses"><%= @losses %></td>
+				</tr>
+			</table>
+		</div>
+		<!-- hint div	 -->
+		<div id="hint_div">
+			<h3>Hint: <%= @hint %></h3>
+		</div>	
+		<!-- guess boxes div -->
+		<div id="guess_div">
+		<% @game_word_letters.each.with_index do |letter, index| %>
+			<div class="guess_letter_div">
+				<p id="guess_letter_<%= index %>">?
+				</p>
+			</div>	
+		<% end %>
+		</div>
 	</div>	
-<% end %>
-</div>
+</div>	
 
-<!-- ****************************** -->
-<!-- Button to Play Again -->
-<!-- ****************************** -->
 
-<form action="/hangman" method="get">
-<input type="submit" value="Play Again!">
-</form>
-
-<!-- ****************************** -->
-<!-- Hangman Image -->
-<!-- ****************************** -->
-
-<div id="hangman_img_div">
-	<img src="imgs/Hangman1.png" alt="Hangman Image" id="hangman_img"> 
-</div>
-
-<!-- ****************************** -->
+<!-- ******************************************** -->
 <!-- A-Z Letter Buttons -->
-<!-- ****************************** -->
+<!-- ******************************************** -->
 
-<div id="letters_button_div">
-<% @letters_arr.each do |letter| %>
-	<form action="/hangman/callletter" method="get">
-		<input type="hidden" name="letter" value=<%=letter%>>
-		<input type="hidden" name="hangmangame_id" value=<%=@hangmangame_id%>>		
-		<input type="submit" value=<%=letter%>>
-	</form>
-<% end %>
+
+<div id="typing_area">
+	<div id="play_again_div">
+		<form action="/hangmangames" method="get" id="play_again_form">
+		<input type="submit" value="PLAY AGAIN" id="play_again_button">
+		</form>
+	</div>
+	<div id="letters_button_div">
+	<% @letters_arr.each do |letter| %>
+		<form action="/hangmangames/callletter" method="get">
+			<input type="hidden" name="letter" value=<%=letter%>>
+			<input type="hidden" name="hangmangame_id" value=<%=@hangmangame_id%>>		
+			<input type="submit" value=<%=letter%> class="action-button red">
+		</form>
+	<% end %>
+	</div>	
 </div>
 
 
+<!-- ******************************************** -->
+<!-- Scripts -->
+<!-- ******************************************** -->
 
-<!-- ***************************************************** -->
-<!-- Javascripts -->
-<!-- ***************************************************** -->
 
 <script charset="utf-8">
 
-//************************************
-// Show Hangman Images
-//************************************
-
-function showImages(num_bad_guesses){
-	if(num_bad_guesses < 7) {
-		$("#hangman_img").attr("src","imgs/Hangman"+(num_bad_guesses+1)+".png");
-	}; 
-};
-
-//************************************
-// Show Number of Total Wins
-//************************************
-
-function showWins(wins){
-	if(wins > 0) {
-	$("#wins").html(wins);	
-	};	
-};
-
-//************************************
-// Show Number of Total Losses
-//************************************
-
-function showLosses(losses){
-	if(losses > 0) {
-	$("#losses").html(losses);	
-	};	
-};
-                                                          
-//************************************
-// Populate Guess Boxes with Guessed Letters
-//************************************
-
-function populateGuessSpots(game_state,num_bad_guesses){
-	game_state_array = game_state.split("");
-	if (num_bad_guesses < 7) {
-		$.each(game_state_array, function( index, value ) {
-		    $guessDisplay = $("#guess_letter_"+index);
-		    $guessDisplay.text(value);	    
-		});		
-	};	
-};
-
-
-//************************************
-// Alert Player that He/She has Won
-//************************************
-function alertWin(current_game_win){
-	if(current_game_win === 1) {
-		alert("Yay! You Won!");
-	};
-};
-
-
-//************************************
-// Alert Player that He/She has Won
-//************************************
-function alertLoss(current_game_loss){
-	if(current_game_loss === 1) {
-		alert("Oh No, You Lost!");
-	};
-};
-
-
-
-//************************************
-// Function to Run Upon Successful Ajax Call
-//************************************
-
-function updatepage(data){
-	console.log(data);
-	console.log(data.num_bad_guesses);
-	console.log(data.wins);
-	console.log(data.losses);
-	console.log(data.game_state);
-	console.log(data.current_game_win);
-	console.log(data.current_game_loss);
-	populateGuessSpots(data.game_state,data.num_bad_guesses);
-	showImages(data.num_bad_guesses);
-	showWins(data.wins);
-	showLosses(data.losses);
-	alertWin(data.current_game_win);
-	alertLoss(data.current_game_loss);
-};
-
-
-
 $(function() {
-	$form = $("form[action='/hangman/callletter']");
+	$form = $("form[action='/hangmangames/callletter']");
 	$form.on("submit", function(e){	
 		e.preventDefault();
 		letter = $(e.target).find("input[name='letter']").val();
@@ -195,7 +107,7 @@ $(function() {
 			//use GET because we're pulling information
 			method: "GET",
 			//get the url from the form
-			url: "/hangman/callletter",
+			url: "/hangmangames/callletter",
 			//we expect the data that we get back to be in JSON
 			dataType: "JSON",
 			//we will be sending a hash of our ingredients
@@ -204,6 +116,7 @@ $(function() {
 		});
 	});
 });
+
 </script>
 
 

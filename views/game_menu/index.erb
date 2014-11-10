@@ -1,41 +1,40 @@
-<div>
 
-  <form action="/sessions" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Log-Out">
-  </form>
+<div id="game_menu_div">
 
-</div>
+  <div>
 
-<div>
-  
-  <form action="/profile" method="get">
-    <input type="submit" value="Profile">
-  </form>
-  
-  <form action="/scoreboard" method="get">
-    <input type="submit" value="Scoreboard">
-  </form>
+    <form action="/sessions" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Log-Out">
+    </form>
 
-</div>
-
-<h1>Game Menu</h1>
-
-<a href="/hangman">
-  <div class="game_menu_div">
-    <div id="circle_left">
-      <p>Hangman<p>
-      <p>Single Player<p>
-    </div>
   </div>
-</a>
 
+  <div>
+    
+    <form action="/profile" method="get">
+      <input type="submit" value="Profile">
+    </form>
+    
+    <form action="/scoreboard" method="get">
+      <input type="submit" value="Scoreboard">
+    </form>
 
-<a href="/hangman">
-  <div class="game_menu_div">
-    <div id="circle_right">
-      <p>Tic-Tac-Toe</p>
-      <p>Multi-Player<p>
-    </div>
   </div>
-</a>
+
+  <h1>Game Menu</h1>
+
+<div class="circles_div">
+  <a href="/hangmangames">
+      <div id="circle_left">
+        <p>Hangman</p>
+        <p>Single Player</p>
+      </div>
+  </a>
+  <a href="/tictactoe">
+        <div id="circle_right">
+        <p>Tic-Tac-Toe</p>
+        <p>Multi-Player</p>
+      </div>
+  </a>
+</div>

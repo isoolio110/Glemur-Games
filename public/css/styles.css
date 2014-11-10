@@ -1,6 +1,74 @@
-/*******************************
-		GAME MENU PAGE
-*******************************/
+/***************************************************************************
+	Landing Page
+****************************************************************************/
+
+#landing_page_div{
+	background-color: #18CBF9;
+	height:830px;
+	width:100%;
+	float:left;
+}
+
+#landing_page_nav_div{
+	margin-top: 10px;
+	height:30px;
+	width: 100%;
+	/*background-color: red;*/
+}
+
+#website_logo {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 70px;
+    color:#B0F932;
+    width:60%;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 0.9;
+}
+
+
+/***************************************************************************
+	Create an Account Page
+****************************************************************************/
+#new_user_div{
+	background-color: #18CBF9;
+	height:830px;
+	width:100%;
+	float:left;
+}
+
+#new_user_form_div {
+	margin-left: 50px;
+	color:#B0F932;
+}
+
+
+/***************************************************************************
+	Login Page
+****************************************************************************/
+#new_session_div{
+	background-color: #18CBF9;
+	height:830px;
+	width:100%;
+	float:left;
+}
+
+#new_session_form_div {
+	margin-left: 50px;
+	color:#B0F932;
+}
+
+
+/***************************************************************************
+	Game Menu Page
+****************************************************************************/
+#game_menu_div{
+	background-color: #18CBF9;
+	height:830px;
+	width:100%;
+	float:left;
+}
+
 
 .game_menu_div {
 	width: 50%;	
@@ -8,20 +76,27 @@
 
 #circle_left {
 	border-radius: 50%;
-	width: 200px;
-	height: 200px; 
-	background-color: yellow;
+	width: 500px;
+	height: 500px; 
+	background-color: #B0F932;
 	float:left;
 	text-align: center;
+    font-family: 'Luckiest Guy', cursive;	
+	color:white;
+	font-size: 60px;
+
 }
 
 #circle_right {
 	border-radius: 50%;
-	width: 200px;
-	height: 200px;
-	background-color: lightblue; 
+	width: 500px;
+	height: 500px;
+	background-color: #FEFF0B; 
 	float:right;
 	text-align: center;	
+	font-family: 'Luckiest Guy', cursive;
+	color: white;
+	font-size: 60px;
 }
 
 
@@ -38,6 +113,190 @@
 	width: 50px;
 	height: 50px;
 	display: inline-block;
-	background-color: blue;
+	background-color: #82BF56;
 	padding: 5px;
 }
+
+/***************************************************************************
+	Hangman Game Page
+****************************************************************************/
+
+/**************************************************
+	Navigation
+**************************************************/
+
+#navigation {
+	float: left;
+	background-color: #18CBF9;
+	width: 100%;
+	padding: 20px;
+	height:20%;
+}
+
+.navigation-button{
+    width: 120px;
+    background: none;
+    cursor: pointer;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 20px;
+    color: #fff;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.navigation-form {
+	display: inline-block;
+}
+
+#logout_div {
+	float:left;
+	/*background-color: lightblue;*/
+}
+
+#main_nav_div {
+	float:right;
+	padding-right: 5%;
+	/*background-color: green;*/
+}
+
+/**************************************************
+	Hangman Main Div
+**************************************************/
+
+#hangman_main_div {
+	width:100%;
+	background-color: purple;
+}
+
+#hangman_img_div {
+	width:35%;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	padding-left: 10%;
+	float: left;
+	/*background-color: yellow;*/
+}
+
+#hangman_guess_area_div{
+	width:55%;
+	margin-top: 50px;
+	margin-bottom:50px;
+	float:right;
+	/*background-color: blue;*/
+}
+
+#score_div {
+	float:right;
+	margin-right: 10%;
+	background-color: #FEFF0B;
+	padding: 10px 30px 10px 30px;
+	color: #FEA50B;
+}
+
+th,td {
+	padding: 1px 3px 1px 3px;
+	text-align: center;
+}
+
+#hint_div {
+	padding-top: 15%;
+	float:left;
+	width:100%;
+	font-size: 25px;
+	font-family: Arial;
+	color:#00767E;
+}
+
+#guess_div {
+	padding-top: 5%;
+	float:left;
+	width:100%;
+}
+
+.guess_letter_div {
+	background-color: #9FF9F6;
+	margin: 0px 10px 10px 0px;
+	height:70px;
+	width:70px;
+	text-align: center;
+	font-size: 25px;
+	color:#00767E;
+
+}
+
+
+/**************************************************
+	Typing Area on Screen
+**************************************************/
+
+#typing_area {
+	width:100%;
+	background-color: #B0F932;
+	clear:both;
+	float:left;
+}
+
+#play_again_div {
+	float:left;
+	width:100%;
+	clear:both;
+}
+
+#play_again_button {
+	float:right;
+	margin-right:5%;
+	margin-top: 1.5%;
+	margin-bottom: 1.5%;
+	background-color: #00BDCB;
+    font-family: 'Luckiest Guy', cursive;	
+    color: white;
+    font-size: 23px;
+    padding: 15px;
+}
+
+#letters_button_div {
+	margin-top: 50px;
+	width: 76%;
+	margin: 0 auto;
+	/*background-color: red;*/
+}
+
+/**************************************************
+	Styling for Letter Buttons
+**************************************************/
+.animate {
+	transition: all 0.1s;
+	-webkit-transition: all 0.1s;
+}
+
+.action-button
+{
+	position: relative;
+	width: 60px;
+	height: 60px;
+	padding: 10px 10px;
+  	margin: 0px 20px 10px 0px;
+  	float: left;
+	border-radius: 10px;
+    font-family: 'Luckiest Guy', cursive;
+	font-size: 30px;
+	color: #FFF;
+	text-decoration: none;	
+	outline-width: 0;
+}
+
+.action-button:active
+{
+	transform: translate(0px,5px);
+  	-webkit-transform: translate(0px,5px);
+	border-bottom: 1px solid;
+}
+
+.red
+{
+	background-color: #D92863;
+	border-bottom: 5px solid #B22052;
+	/*text-shadow: 0px -2px #D92872;*/
+}
+
