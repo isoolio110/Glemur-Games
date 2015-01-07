@@ -26,7 +26,10 @@ class HangmanGame < ActiveRecord::Base
     # if the guessed letter is NOT in the game word:
     if game_word_letters.include?(guessed_letter) == false
       # duplicate num_bad_guesses just in case we have database issues
-      num_bad_guesses = self.num_bad_guesses
+      if self.num_bad_guesses == nil
+        num_bad_guesses = 0
+      else num_bad_guesses = self.num_bad_guesses
+      end
       # increase the count of bad guesses by 1
       self.num_bad_guesses = num_bad_guesses + 1
       self.save
