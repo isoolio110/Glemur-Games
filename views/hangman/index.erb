@@ -13,17 +13,6 @@
 	    <input type="submit" value="Log-Out" class="navigation-button">
 	  </form>
 	</div>
-	<div id="main_nav_div">
-	  <form action="/games" method="get" class="navigation-form">
-	    <input type="submit" value="Home" class="navigation-button">
-	  </form>
-	  <form action="/profile" method="get" class="navigation-form">
-	    <input type="submit" value="Profile" class="navigation-button">
-	  </form>
-	  <form action="/scoreboard" method="get" class="navigation-form">
-	    <input type="submit" value="Scoreboard" class="navigation-button">
-	  </form>
-	</div>
 </div>
 
 
@@ -53,7 +42,7 @@
 		<!-- hint div	 -->
 		<div id="hint_div">
 			<h3>Hint: <%= @hangmangame.word.hint %></h3>
-		</div>	
+		</div>
 		<!-- guess boxes div -->
 		<div id="guess_div">
 		<% @game_word_letters.each.with_index do |letter, index| %>
@@ -74,13 +63,15 @@
 
 <div id="typing_area">
 	<div id="play_again_div">
-		<form action="/hangmangames" method="get" id="play_again_form">
+ 		<!-- <form action="/hangmangames" method="get" id="play_again_form">		 -->
+		<form action="/" method="get" id="play_again_form">
 		<input type="submit" value="PLAY AGAIN" id="play_again_button">
 		</form>
 	</div>
 	<div id="letters_button_div">
 	<% @letters_arr.each do |letter| %>
-		<form action="/hangmangames/callletter" method="get">
+		<!-- <form action="/hangmangames/callletter" method="get"> -->
+		<form action="/callletter" method="get">			
 			<input type="hidden" name="letter" value=<%=letter%>>
 			<input type="hidden" name="hangmangame_id" value=<%=@hangmangame.id%>>		
 			<input type="submit" value=<%=letter%> class="action-button red">
@@ -98,7 +89,8 @@
 <script charset="utf-8">
 
 $(function() {
-	$form = $("form[action='/hangmangames/callletter']");
+	// $form = $("form[action='/hangmangames/callletter']");
+	$form = $("form[action='/callletter']");	
 	$form.on("submit", function(e){	
 		e.preventDefault();
 		letter = $(e.target).find("input[name='letter']").val();
@@ -107,7 +99,8 @@ $(function() {
 			//use GET because we're pulling information
 			method: "GET",
 			//get the url from the form
-			url: "/hangmangames/callletter",
+			// url: "/hangmangames/callletter",
+			url: "/callletter",
 			//we expect the data that we get back to be in JSON
 			dataType: "JSON",
 			//we will be sending a hash of our ingredients

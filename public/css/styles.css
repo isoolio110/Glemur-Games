@@ -60,65 +60,6 @@
     font-family: 'Luckiest Guy', cursive;	
 }
 
-
-/***************************************************************************
-	Game Menu Page
-****************************************************************************/
-#game_menu_div{
-	background-color: #18CBF9;
-	height:830px;
-	width:100%;
-	float:left;
-}
-
-
-.game_menu_div {
-	width: 50%;	
-}
-
-#circle_left {
-	border-radius: 50%;
-	width: 500px;
-	height: 500px; 
-	background-color: #B0F932;
-	float:left;
-	text-align: center;
-    font-family: 'Luckiest Guy', cursive;	
-	color:white;
-	font-size: 60px;
-
-}
-
-#circle_right {
-	border-radius: 50%;
-	width: 500px;
-	height: 500px;
-	background-color: #FEFF0B; 
-	float:right;
-	text-align: center;	
-	font-family: 'Luckiest Guy', cursive;
-	color: white;
-	font-size: 60px;
-}
-
-
-#letters_button_div {
-	height: 5%;
-}
-
-
-.guess_div {
-	width: 100%;
-}
-
-.guess_letter_div {
-	width: 50px;
-	height: 50px;
-	display: inline-block;
-	background-color: #82BF56;
-	padding: 5px;
-}
-
 /***************************************************************************
 	Hangman Game Page
 ****************************************************************************/
@@ -219,12 +160,17 @@ th,td {
 .guess_letter_div {
 	background-color: #9FF9F6;
 	margin: 0px 10px 10px 0px;
-	height:70px;
-	width:70px;
+	width: 70px;
+	height: 50px;
 	text-align: center;
 	font-size: 25px;
 	color:#00767E;
+	display: inline-block;
+	padding-bottom: 20px;
+}
 
+.guess_div {
+	width: 100%;
 }
 
 
