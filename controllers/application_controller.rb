@@ -26,7 +26,6 @@ class ApplicationController < Sinatra::Base
       @wins = current_user.hangman_games.where(win: 1).count
       @losses = current_user.hangman_games.where(loss: 1).count
       erb :'hangman/index'
-      # erb :'game_menu/index'
     else
       erb :index
     end
@@ -58,18 +57,6 @@ class ApplicationController < Sinatra::Base
       current_game_win: hangmangame.win,
       current_game_loss: hangmangame.loss
     }.to_json
-  end
-
-  get '/games' do
-    erb :'game_menu/index'
-  end
-
-  get '/scoreboard' do
-    erb :'scoreboard/index'
-  end
-
-  get '/profile' do
-    erb :'profile/index'
   end
 
   get '/console' do
